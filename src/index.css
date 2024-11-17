@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-stellar-dark text-white antialiased;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative px-4 py-2 text-gray-300 hover:text-white transition-colors duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-stellar-teal after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-stellar-teal text-stellar-dark font-semibold rounded-lg hover:bg-stellar-teal-dark transition-colors duration-200 transform hover:scale-105;
+  }
+  
+  .card {
+    @apply bg-stellar-gray/50 backdrop-blur-lg rounded-xl p-6 border border-stellar-gray-light/10 hover:border-stellar-teal/20 transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-white to-stellar-teal bg-clip-text text-transparent;
+  }
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(31, 41, 55, 0.2), rgba(31, 41, 55, 0.1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
