@@ -8,21 +8,21 @@ const positions = [
     title: "Senior Full Stack Developer",
     type: "Full-time",
     location: "Pokhara, Nepal",
-    experience: "5+ years",
+    experience: "4+ years",
     description: "Looking for an experienced full-stack developer with expertise in React and Node.js ecosystems."
   },
   {
     title: "UI/UX Designer",
     type: "Full-time",
     location: "Pokhara, Nepal",
-    experience: "3+ years",
+    experience: "2+ years",
     description: "Seeking a creative designer with experience in creating modern web and mobile interfaces."
   },
   {
     title: "DevOps Engineer",
     type: "Full-time",
     location: "Pokhara, Nepal",
-    experience: "4+ years",
+    experience: "1+ years",
     description: "Looking for a DevOps engineer with strong experience in cloud infrastructure and CI/CD pipelines."
   }
 ];
