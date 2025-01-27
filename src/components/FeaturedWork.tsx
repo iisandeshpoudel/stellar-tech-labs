@@ -1,17 +1,10 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github } from 'lucide-react';
 
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  link: string;
-}
-
-const projects: Project[] = [
+const projects = [
   {
     title: "E-Commerce Platform",
     description: "A modern e-commerce solution with real-time inventory and AI-powered recommendations.",
@@ -35,7 +28,7 @@ const projects: Project[] = [
   }
 ];
 
-const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+const ProjectCard = ({ project, index, hoverIndex, setHoverIndex }) => {
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true
@@ -46,51 +39,66 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="group relative overflow-hidden rounded-xl"
+      transition={{ duration: 0.8, delay: index * 0.3 }}
+      className={`group relative overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-500 ${
+        hoverIndex === index ? 'scale-105 z-10' : 'scale-100'
+      }`}
+      onMouseEnter={() => setHoverIndex(index)}
+      onMouseLeave={() => setHoverIndex(-1)}
     >
       <div className="relative aspect-[16/9] overflow-hidden">
-        <img
+        <motion.img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-stellar-darker via-stellar-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div
+          className={`absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+            hoverIndex === index ? 'opacity-100' : ''
+          }`}
+        />
       </div>
 
-      <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-[60%] group-hover:translate-y-0 transition-transform duration-500">
-        <div className="bg-stellar-darker/80 backdrop-blur-sm rounded-xl p-6">
-          <h3 className="text-xl font-display font-bold mb-2">{project.title}</h3>
+      <div
+        className={`absolute inset-0 p-6 flex flex-col justify-end transform translate-y-[70%] group-hover:translate-y-0 transition-transform duration-700`}
+      >
+        <motion.div
+          className="bg-black/70 backdrop-blur-lg rounded-2xl p-6"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.3 }}
+        >
+          <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
           <p className="text-gray-300 mb-4">{project.description}</p>
-          
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-3 mb-4">
             {project.tags.map((tag, i) => (
               <span
                 key={i}
-                className="px-3 py-1 text-sm bg-stellar-gray/50 rounded-full text-stellar-teal"
+                className="px-3 py-1 text-sm bg-gradient-to-r from-stellar-teal to-stellar-blue text-white rounded-full"
               >
                 {tag}
               </span>
             ))}
           </div>
-
           <div className="flex space-x-4">
             <a
               href={project.link}
-              className="flex items-center text-stellar-teal hover:text-stellar-teal-dark transition-colors"
+              className="flex items-center text-stellar-teal hover:text-stellar-teal-dark transition-all duration-300"
             >
-              <ExternalLink className="w-5 h-5 mr-2" />
+              <ExternalLink className="w-5 h-5 mr-2 transform transition-transform duration-300 group-hover:scale-110" />
               Live Demo
             </a>
             <a
               href="#"
-              className="flex items-center text-stellar-teal hover:text-stellar-teal-dark transition-colors"
+              className="flex items-center text-stellar-teal hover:text-stellar-teal-dark transition-all duration-300"
             >
-              <Github className="w-5 h-5 mr-2" />
+              <Github className="w-5 h-5 mr-2 transform transition-transform duration-300 group-hover:scale-110" />
               Source Code
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
@@ -102,25 +110,34 @@ const FeaturedWork = () => {
     triggerOnce: true
   });
 
+  const [hoverIndex, setHoverIndex] = useState(-1);
+
   return (
-    <section id="work" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="work" className="py-24 bg-gradient-to-b from-stellar-dark via-stellar-darker to-black relative">
+      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
         >
-          <h2 className="section-title mb-4">Featured Projects</h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Discover our latest work and see how we've helped businesses transform their digital presence.
+          <h2 className="text-4xl font-bold text-white mb-6">Our Latest Creations</h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Browse our portfolio of cutting-edge projects designed to redefine digital experiences.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <ProjectCard
+              key={index}
+              project={project}
+              index={index}
+              hoverIndex={hoverIndex}
+              setHoverIndex={setHoverIndex}
+            />
           ))}
         </div>
       </div>

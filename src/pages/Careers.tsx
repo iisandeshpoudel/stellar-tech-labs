@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Coffee, Users } from 'lucide-react';
 import { toast } from 'sonner';
