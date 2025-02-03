@@ -31,24 +31,24 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-          <svg
-  className="w-32 h-32 md:w-12 md:h-12 mx-auto" // Adjusted to better fit the navbar
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 100 100"
-  fill="currentColor"
->
-  <image
-    href="./lab.svg" // Path to your SVG in the public folder
-    x="0"
-    y="0"
-    width="100"
-    height="100" // Ensuring the image fills the SVG properly
-  />
-</svg>
-
-
+            <svg
+              className="w-12 h-12 md:w-16 md:h-16" // Fixed sizing
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              fill="currentColor"
+            >
+              <image
+                href="/lab.svg"
+                x="0"
+                y="0"
+                width="100"
+                height="100"
+                className="w-full h-full" // Ensure image fills SVG
+              />
+            </svg>
           </Link>
 
+          {/* Rest of the navbar code remains the same */}
           <div className="hidden md:flex items-center space-x-6">
             <Link to="/" className="nav-link hover:text-stellar-teal transition duration-300">Home</Link>
             <Link to="/about" className="nav-link hover:text-stellar-teal transition duration-300">About</Link>
@@ -56,7 +56,7 @@ const Navbar = () => {
             <Link to="/careers" className="nav-link hover:text-stellar-teal transition duration-300">Careers</Link>
             <Link
               to="/contact"
-              className="px-4 py-2 bg-stellar-teal hover:bg-stellar-teal-dark text-black w-full btn-primary rounded-md shadow-lg transition duration-300"
+              className="px-4 py-2 bg-stellar-teal hover:bg-stellar-teal-dark text-black rounded-md shadow-lg transition duration-300"
             >
               Contact Us
             </Link>
@@ -73,7 +73,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu remains the same */}
       {isMobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}

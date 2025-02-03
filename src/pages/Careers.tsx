@@ -2,6 +2,8 @@ import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Coffee, Users } from 'lucide-react';
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
+
 
 const positions = [
   {
@@ -46,14 +48,15 @@ const benefits = [
 ];
 
 const Careers = () => {
+  const navigate = useNavigate();
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
 
-  const handleApply = (position: string) => {
-    setSelectedPosition(position);
-    toast.success('Application form opened');
-    // In a real implementation, this would open a modal or navigate to an application form
-    window.location.href = `/contact?position=${encodeURIComponent(position)}`;
-  };
+ const handleApply = (position: string) => {
+  setSelectedPosition(position);
+  toast.success('Application form opened');
+  window.open('https://forms.gle/AC3GPLovSFjZHkFX7', '_blank');
+};
+
 
   return (
     <div className="pt-20">
