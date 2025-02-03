@@ -38,7 +38,7 @@ const Internship = () => {
 
   const handleApply = (position: string) => {
     toast.success("Application form opened");
-    window.location.href = `/contact?position=${encodeURIComponent(position)}`;
+    window.open('https://forms.gle/AC3GPLovSFjZHkFX7', '_blank');
   };
 
   const filteredPositions =
@@ -144,11 +144,9 @@ const Internship = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Join Us!
+              Available Internships!
             </motion.h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Be part of Nepal's growing tech ecosystem and work on exciting projects to develop your skills!
-            </p>
+           
           </div>
 
           {/* Filters */}
@@ -184,7 +182,6 @@ const Internship = () => {
 
           {!loading && (
             <>
-              <h2 className="text-3xl font-bold mb-8">Available Internships</h2>
               <div className="space-y-6">
                 {filteredPositions.map((position, index) => (
                   <motion.div

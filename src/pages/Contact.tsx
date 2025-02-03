@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import ReCAPTCHA from 'react-google-recaptcha';
+
 
 interface ContactForm {
   name: string;
@@ -15,14 +15,9 @@ interface ContactForm {
 const Contact = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactForm>();
   const [isLoading, setIsLoading] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+ 
 
   const onSubmit = async (data: ContactForm) => {
-    if (!recaptchaToken) {
-      toast.error('Please complete the reCAPTCHA verification.');
-      return;
-    }
-
     try {
       setIsLoading(true);
       // Simulate API call
@@ -36,9 +31,7 @@ const Contact = () => {
     }
   };
 
-  const handleRecaptchaChange = (token: string | null) => {
-    setRecaptchaToken(token);
-  };
+  
 
   return (
     <div className="pt-20">
@@ -123,13 +116,7 @@ const Contact = () => {
                   rows={4}
                 />
 
-                {/* reCAPTCHA */}
-                <ReCAPTCHA
-                  sitekey="your-recaptcha-site-key"
-                  onChange={handleRecaptchaChange}
-                  className="mb-4"
-                />
-
+               
                 {/* Submit Button */}
                 <button
                   type="submit"
