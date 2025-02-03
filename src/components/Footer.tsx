@@ -19,9 +19,10 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61550880599303"
                 className="text-gray-400 hover:text-stellar-teal transition-colors"
                 aria-label="Facebook"
+                target="_blank"
               >
                 <Facebook className="w-5 h-5" />
               </a>
@@ -33,16 +34,18 @@ const Footer = () => {
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/stellartechlabs/"
                 className="text-gray-400 hover:text-stellar-teal transition-colors"
                 aria-label="Instagram"
+                target="_blank"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/stellar-tech-labs/"
                 className="text-gray-400 hover:text-stellar-teal transition-colors"
                 aria-label="LinkedIn"
+                target="_blank"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -78,8 +81,16 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a href="/classes" target="_blank"
+                className="hover:text-stellar-teal transition-colors"
+                >
+                  Classes
+                  </a>
+  
+              </li>
+              <li>
                 <a
-                  href="#careers"
+                  href="/careers" target="_blank"
                   className="hover:text-stellar-teal transition-colors"
                 >
                   Careers

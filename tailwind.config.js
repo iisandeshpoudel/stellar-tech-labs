@@ -10,7 +10,8 @@ export default {
           teal: '#2DD4BF',
           'teal-dark': '#14B8A6',
           gray: '#1F2937',
-          'gray-light': '#374151'
+          'gray-light': '#374151',
+          
         }
       },
       fontFamily: {

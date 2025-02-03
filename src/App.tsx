@@ -12,6 +12,7 @@ import ScrollToTop1 from './components/ScrollOnRefresh';
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
 const Careers = React.lazy(() => import('./pages/Careers'));
+const Classes = React.lazy(() => import('./pages/Class'))
 const Contact = React.lazy(() => import('./pages/Contact'));
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/internship" element={<Internship />} />
+            <Route path="/classes" element={<Classes />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

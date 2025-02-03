@@ -10,16 +10,17 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  { name: 'Prajwal K.C', role: 'Chief Executive Officer (CEO)', image: './photos/ACS.png' },
-  { name: 'Kiran Gautam', role: 'Chief Operating Officer (COO)', image: './photos/kirann.png' },
-  {name: 'Sandesh Poudel', role: 'Chief Operating Officier (CTO)', image: './photos/sandesh.PNG'},
-  { name: 'Pabin Poudel', role: 'Chief Marketing Officier (CMO)', image: './photos/pabin.PNG' },
-  {name: "Prapti Gurung", role: 'Human Resource Manager (HRM)', image: './photos/praptididi.PNG'},
-  {name: "Shishir Chhetri", role: 'Full Stack Developer', image: './photos/ACS.png'},
-  {name: "Brisha Shrestha", role: 'Full Stack Developer', image: './photos/ACS.png'},
- 
+  { name: 'Prajwal K.C', role: 'Chief Executive Officer (CEO)', image: '/photos/ACS.png' },
+  { name: 'Kiran Gautam', role: 'Chief Operating Officer (COO)', image: '/photos/kirann.png' },
+  { name: 'Sandesh Poudel', role: 'Chief Technology Officer (CTO)', image: '/photos/sandesh.png' },
+  { name: 'Pabin Poudel', role: 'Chief Marketing Officer (CMO)', image: '/photos/pabin.png' },
+  { name: 'Prapti Gurung', role: 'Human Resource Manager (HRM)', image: '/photos/praptididi.png' },
+  { name: 'Shishir Chhetri', role: 'Full Stack Developer', image: '/photos/ACS.png' },
+  { name: 'Brisha Shrestha', role: 'Full Stack Developer', image: '/photos/ACS.png' },
+  
   // Add more team members as needed
 ];
+
 
 const About: React.FC = () => {
   const controls = useAnimation();
