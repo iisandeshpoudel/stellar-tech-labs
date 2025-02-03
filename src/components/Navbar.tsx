@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from "/lab.svg";
+
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,21 +34,21 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-            <svg
+           <svg
               className="w-12 h-12 md:w-16 md:h-16" // Fixed sizing
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 100 100"
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 100 100"
               fill="currentColor"
-            >
-              <image
-                href="/lab.svg"
-                x="0"
-                y="0"
-                width="100"
-                height="100"
-                className="w-full h-full" // Ensure image fills SVG
-              />
-            </svg>
+                                  >
+                <image
+                  x="0"
+                  y="0"
+                  width="100"
+                  height="100"
+                  className="w-full h-full"
+                  href={logo} // Correct way to use imported image
+                />
+              </svg>
           </Link>
 
           {/* Rest of the navbar code remains the same */}
